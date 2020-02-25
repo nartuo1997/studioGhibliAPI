@@ -24,9 +24,15 @@ if(request.status == 200) {     // HTTP request OK
     data.forEach(movies => {
         // create <div> element
         const card = document.createElement('div');
+        const progress = document.createElement('div');
+        const progress_bar = document.createElement('div')
+        // const bar = document.createElement;
 
         // set <div class="card">
         card.setAttribute('class', 'card');
+        progress.setAttribute("class", "progress-container");
+        progress_bar.setAttribute("class", "progress-bar");
+        // bar.setAttribute('id', "myBar");
 
         // create h1 tag
         const h1 = document.createElement('h1')
@@ -37,12 +43,18 @@ if(request.status == 200) {     // HTTP request OK
         movies.description = movies.description.substring(0,300);    // limit to 300 chars
         p.textContent = `${movies.description}...`;
 
+        
+        
 
          // Append the cards to the container element
         container.appendChild(card)
-        // Each card will contain an h1 and a p
-        card.appendChild(h1);
-        card.appendChild(p);
+       
+        card.appendChild(progress);
+        progress.appendChild(progress_bar);
+
+        
+        progress.appendChild(h1);
+        progress.appendChild(p);
 
 
 
